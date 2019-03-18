@@ -1,0 +1,93 @@
+malloc = memory allocation
+//malloc will return NULL if memory allocation fails (may happen when there is no space, because memory all fragmented)
+
+
+Stack : static variable - element nicely stacked on top of one another
+Heap : dynamic var - elements allocated anywhere during run-time (our focus)
+
+malloc() need to know how many bytes to set aside for a block.
+
+
+Pointer takes you to first element of array
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *i;
+    i = malloc(sizeof(int));   //size to allocate = number of elements *sizeof(each element)
+    if (i==NULL)
+        printf("Uh oh.\n");
+    scanf("%d",i);
+    printf("The magic number is %d\n",*i);
+}
+
+//scan the number, show it as magic number
+_________________________________________________
+
+int main()
+{
+    int n;
+    int *numArray;
+    scanf("%d",&n);
+    numArray = malloc(sizeof(int)*n);
+    if (numArray!=NULL)
+        for (int i = 0;i<n;i++){
+            scanf("%d",numArray+i);
+        }
+
+}
+
+//scan the size
+//scan (size) number of times, store in array
+_________________________________________________________
+#include <stdio.h>
+#include <stdlib.h>
+
+struct mystruct{
+    int number;
+    struct mystruct *nextstruct;
+};
+int main(){
+struct mystruct *firststruct;
+firststruct = malloc(sizeof(struct mystruct));
+firststruct->number = 1;
+firststruct->nextstruct = malloc(sizeof(struct mystruct));
+firststruct->nextstruct->number = 2;
+firststruct->nextstruct->nextstruct = NULL;
+}
+
+//create array after array
+________________________________________________________________
+Elements created using malloc are not auto cleared
+Need to free up dynamically allocated elements after done
+
+free(pointer);
+- free() does not need to know how many bytes to clear
+- System keeps track of size of block using malloc()
+
+e.g.
+void myfunc(){
+int firststruct = malloc(sizeof(int));
+...
+free(i);
+}
+//create a function that will clear after done
+
+void main() {
+for (int=0.....)
+  myfunc();
+}
+
+//then run the function for number of times desired
+
+***malloc(3 * sizeof(int)) will overwrite other data. Avoid
+
+***Don't forget to include stdlib.h
+
+***Code file name must be .c, not .cpp
+
+***Memory leak occurs when you allocated memory, then make it inaccessible, i.e. assign name to another memory
+
