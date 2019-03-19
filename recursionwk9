@@ -20,6 +20,10 @@ free(): release space
 
 eg. free(pointr);
 
+realloc() : change the size of previous allocation for when originally allocated memory space is insufficient/too much
+
+eg. pointr = realloc(pointr,x);  //where x is new size
+
 
 #include <stdio.h>
 #include <stdlib.h>
