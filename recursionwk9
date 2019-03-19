@@ -24,6 +24,19 @@ realloc() : change the size of previous allocation for when originally allocated
 
 eg. pointr = realloc(pointr,x);  //where x is new size
 
+_______________________________________________________________________________________________________
+Linked list have a few advantages over array
+- Items can be added or removed from the middle of the list
+- There is no need to define an initial size
+
+However, linked lists also have a few disadvantages:
+
+- There is no "random" access - it is impossible to reach the nth item in the array without first iterating over all items
+- Dynamic memory allocation and pointers are required, which complicates the code and increases the risk of memory leaks and segment faults.
+- Linked lists have a much larger overhead over arrays, since linked list items are dynamically allocated (which is less efficient in memory usage) and each item in the list also must store an additional pointer.
+
+____________________________________________________________________________________________________________________
+
 
 #include <stdio.h>
 #include <stdlib.h>
