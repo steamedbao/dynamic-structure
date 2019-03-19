@@ -1,14 +1,24 @@
-malloc = memory allocation
-//malloc will return NULL if memory allocation fails (may happen when there is no space, because memory all fragmented)
-
 
 Stack : static variable - element nicely stacked on top of one another
 Heap : dynamic var - elements allocated anywhere during run-time (our focus)
 
-malloc() need to know how many bytes to set aside for a block.
+malloc() : allocate a block of memory of a certain number of bytes
+It returns a pointer that is of type void and can be type-casted into any form
+Needs to know how many bytes to set aside for a block
+malloc will return NULL if memory allocation fails (may happen when there is no space, because memory all fragmented)
 
 
-Pointer takes you to first element of array
+Recap: pointer takes you to first element of array
+
+eg. pointr = (int*)malloc(100*sizeof(int));
+
+calloc(): allocate multiple blocks of memory and initialize them to 0
+
+eg. pointr = (float*)calloc(25,sizeof(float));
+
+free(): release space
+
+eg. free(pointr);
 
 
 #include <stdio.h>
